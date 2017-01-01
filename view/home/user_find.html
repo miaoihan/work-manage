@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    用户列表 {% for user in userList %}
+    <div>姓名：{{user.name}} 密码：{{user.password}}
+        <a href="/user/edit/?id={{user.id}}">编辑</a>
+        <a href="/user/delete/?id={{user.id}}">删除</a> {% endfor %}</div>
+
+    <div><a href="/user/add">新增</a></div>
+</body>
+
+</html>
