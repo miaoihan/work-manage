@@ -7,8 +7,11 @@ export default class extends Base {
    * index action
    * @return {Promise} []
    */
-  indexAction(){
-    //auto render template file index_index.html
-    return this.display();
+  async indexAction(){
+    let question = this.model('question')
+    let queList = await question.select()
+    console.log(queList);
+    this.assign('queList', queList)
+    return this.display()
   }
 }

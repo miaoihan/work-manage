@@ -31,7 +31,7 @@ export default class extends think.model.base {
         },
         del_state: { //全名
             default: function() { //first_name 和 last_name 的组合，这里不能用 Arrows Function
-                return 1
+                return 0
             }
         },
         created_time: { //创建时间

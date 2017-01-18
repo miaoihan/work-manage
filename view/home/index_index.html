@@ -16,7 +16,6 @@
         <div id="modal1" class="modal bottom-sheet" style="max-height:90%;">
             <form id="form1" action="/question/add" method="post">
                 <div class="e-t-wrapp">
-
                     <input type="text" placeholder="请输入标题..." style="border:none;font-size: 20px;
     padding-left: 8px;width: 90%;" name="title">
                     <button class="btn right" onclick="subme()">提交</button>
@@ -67,33 +66,18 @@
                                 <div class="h-r-content"> 如果您已经把我们的 JavaScript 教程学习完毕，并且需要更深入地学习这门语言，那么 w3school 提供的 《JavaScript 高级教程》绝对是您最好的选择。 本教程从 JavaScript 的历史开始讲起。 </div>
                             </div>
                         </div>
+                        {% for question in queList %}
                         <div class="que-item">
                             <h2 class="item-title">
-                                <span>如何评价Bootstrap v4放弃支持IE9，并默认使用flexbox?</span>
-                                <span class="i-t-time right">12/16 22:15</span>
+                                <span>{{question.title}}</span>
+                                <span class="i-t-time right">{{queList.created_time}}</span>
                             </h2>
                             <div class="clear"></div>
-                            <div class="item-content"> 在前端快速发展的今天，没有理由去兼容一个陈旧且不再获得功能更新的浏览器。 IE被吐槽的最深层原因，是大部分人都不会升级IE。 </div>
+                            <div class="item-content"> {{question.content}}</div>
                             <div class="item-meta"> <span>Jason</span> <span>任务</span> <span>116</span> <span>12</span> </div>
                         </div>
-                        <div class="que-item">
-                            <h2 class="item-title">
-                                <span>如何评价Bootstrap v4放弃支持IE9，并默认使用flexbox?</span>
-                                <span class="i-t-time right">12/16 22:15</span>
-                            </h2>
-                            <div class="clear"></div>
-                            <div class="item-content"> 在前端快速发展的今天，没有理由去兼容一个陈旧且不再获得功能更新的浏览器。 IE被吐槽的最深层原因，是大部分人都不会升级IE。 </div>
-                            <div class="item-meta"> <span>Jason</span> <span>任务</span> <span>116</span> <span>12</span> </div>
-                        </div>
-                        <div class="que-item">
-                            <h2 class="item-title">
-                                <span>如何评价Bootstrap v4放弃支持IE9，并默认使用flexbox?</span>
-                                <span class="i-t-time right">12/16 22:15</span>
-                            </h2>
-                            <div class="clear"></div>
-                            <div class="item-content"> 在前端快速发展的今天，没有理由去兼容一个陈旧且不再获得功能更新的浏览器。 IE被吐槽的最深层原因，是大部分人都不会升级IE。 </div>
-                            <div class="item-meta"> <span>Jason</span> <span>任务</span> <span>116</span> <span>12</span> </div>
-                        </div>
+                        {% endfor %}
+                        
                     </div>
                     <!-- end list -->
                     <div style="text-align:center;margin:20px 0;">
