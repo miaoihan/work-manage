@@ -53,8 +53,10 @@ export default class extends Base {
         password = shasum.digest('hex');
         
         let user = await model.where({ username: username, password: password }).find()
+        this.session("user",user);
         console.log(user);
-        if(!user){
+        if(think.isEmpty(user)){
+            console.log(888888888888);
             this.assign('info', '用户名或密码错误')
             return this.display()
         }

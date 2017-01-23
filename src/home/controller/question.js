@@ -12,15 +12,17 @@ export default class extends Base {
     async findAction() {
         let question = this.model('question')
         let queList = await question.select()
+        let user = this.session("userInfo");
         this.assign('queList', queList)
-        return this.display('home/index/index')
+        this.assign('user', user)
+
+        return this.display('/')
     }
 
     async addAction() {
         if (this.isGet()) {
             return this.display()
         }
-        console.log(88888888888);
         let model = this.model('question')
         let id = this.post('id')
         let title = this.post('title')

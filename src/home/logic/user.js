@@ -12,4 +12,8 @@ export default class extends think.logic.base {
   indexAction(){
    
   }
+
+  async loginAction(){
+    
+  }
 }

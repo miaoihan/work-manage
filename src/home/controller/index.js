@@ -10,8 +10,9 @@ export default class extends Base {
   async indexAction(){
     let question = this.model('question')
     let queList = await question.select()
-    console.log(queList);
+    let user = await this.session('user')
     this.assign('queList', queList)
+    this.assign('user', user)
     return this.display()
   }
 }

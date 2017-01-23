@@ -38,8 +38,12 @@
         <nav class="nav-top">
             <div class="nav-wrapper"> <a href="/" class="left brand-logo" style="font-size:22px;">码蜂社</a>
                 <ul id="nav-mobile" class="right">
+                    {% if user %}
+                    <li>你好，{{user.username}}</li>
+                    {% else %}
                     <li><a href="/user/login">登录</a></li>
                     <li><a href="/user/register">注册</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
