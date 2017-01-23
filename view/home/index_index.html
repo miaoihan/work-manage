@@ -69,8 +69,8 @@
                         {% for question in queList %}
                         <div class="que-item">
                             <h2 class="item-title">
-                                <span>{{question.title}}</span>
-                                <span class="i-t-time right">{{queList.created_time}}</span>
+                                <a href="/question/{{question.id}}"><span>{{question.title}}</span></a>
+                                <span class="i-t-time right">{{question.created_time}}</span>
                             </h2>
                             <div class="clear"></div>
                             <div class="item-content"> {{question.content}}</div>

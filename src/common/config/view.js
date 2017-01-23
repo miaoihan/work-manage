@@ -9,6 +9,10 @@ export default {
   file_depr: '_',
   root_path: think.ROOT_PATH + '/view',
   adapter: {
-    ejs: {}
+    ejs: {},
+    nunjucks: {
+      trimBlocks: false, //不转义
+      prerender: function(nunjucks, env){} //针对nunjucks模板的过滤器
+    }
   }
 };

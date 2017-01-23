@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/materialize.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <!--导航栏-->
+    <nav class="nav-top">
+        <div class="nav-wrapper"> <a href="/static/index.html" class="left brand-logo" style="font-size:22px;">码蜂社</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="sass.html">登录</a></li>
+                <li><a href="badges.html">注册</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <!--面包屑-->
+        <div class="crumbs-wrapper zcard content-20"> <a href="#!" class="">首页</a> / <a href="#!" class="">论坛</a> / <a href="#!" class="active">前端</a>
+        </div>
+        <div class="row">
+            <div class="col m8 s12">
+                <div class="zcard que-dtl">
+                    <h2>{{question.title}}</h2>
+                    <div class="que-meta">
+                        <span>118</span>
+                        <span>56</span>
+                        <span>{{question.created_time}}</span>
+                    </div>
+                    <div class="que-content">
+                        {{question.content}}
+                    </div>
+                </div>
+                <div class="ans-text">
+                    <form id="form1" action="/answer/answer" method="post">
+                        <input type="hidden" value="{{question.id}}" name="qid">
+                        <textarea name="content" id="" class="zcard" style="height:100px;background:#fff;border:none"></textarea>
+                        <button class="btn waves-effect waves-light right" type="submit" name="action" 
+                                style="background: #ef1255;margin:10px 0 20px;"
+                                onclick="subme">发布
+                        </button>
+                    </form>
+                </div>
+                <div class="clear"></div>
+                <div class="ans-list">
+                    {% for answer in answerList %}
+                    <div class="ans-item row zcard">
+                        <div class="col">
+                            <div class="ans-avator">
+                                <img src="/static/imgs/t2.jpg" alt="" class="avator">
+                            </div>
+                        </div>
+                        <div class="col s10" style="margin:5px 0 10px -10px;">
+                            <div class="meta">
+                                <span>steven</span>
+                                <span>{{answer.created_time}}</span>
+                            </div>
+                            <div class="ans-content">
+                                {{answer.content}}
+                            </div>
+                            <div style="margin-top:10px;color:#8590a6;">
+                                <span></span>
+                                <span>回复</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- end item -->
+                   
+                    <div class="seemore-wrap">
+                        <a href="" class="btn seemore">查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col m3 s12">
+                <div class="zcard user-card ">
+                    <div class="avator">
+                        <img src="/static/imgs/l1.jpg" alt="" class="avator">
+                    </div>
+                    <div class="ucard-username">
+                        杰克
+                    </div>
+                    <div class="ucard-intro">
+                        知识就是power
+                    </div>
+                    <hr style="width:60%;margin:10px auto; m">
+                    <div class="ucard-somethings ">
+                        <div style="font-size:12px;color:#999;">评论</div>
+                        <div style="">66</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="Copyright ">
+            Copyright © 2016 码蜂社 京公网安备 26015792005034号
+        </div>
+    </footer>
+</body>
+<script>
+    function checkForm() {
+
+            }
+
+    function subme() {
+        if (checkForm) {
+            $('#form1').submit(() => {
+                // alert('提交成功')
+            })
+        }
+    }
+</script>
+</html>

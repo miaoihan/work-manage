@@ -9,38 +9,37 @@ export default class extends think.model.base {
      * @type {Object}
      */
     schema = {
-        u_id: { //
+        content: { //回复内容
             default: function() { 
                 return null
             }
         },
-        title: { //
+        q_id: { //问题的id
             default: function() { 
                 return null
             }
         },
-        content: { //
+        a_id: { //回复的回复
             default: function() { 
                 return null
             }
         },
-        a_id: { //
-            default: function() { 
-                return null
-            }
-        },
-        del_state: { //
+        del_state: { 
             default: function() { 
                 return 0
             }
         },
         created_time: { //创建时间
             default: () => { //获取当前时间
-                // return moment().format("YYYY-MM-DD HH:mm:ss")   
+                // return moment().format("YYYY-MM-DD HH:mm:ss")
                 return Date.parse(new Date())
             },
             readonly: true //只读，添加后不可修改
         }
+    }
+
+    getUserList() {
+
     }
 
 

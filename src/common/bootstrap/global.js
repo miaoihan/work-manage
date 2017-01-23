@@ -10,3 +10,7 @@
  *     
  * }
  */
+
+global.parseTime = function(timestamp){
+    
+}

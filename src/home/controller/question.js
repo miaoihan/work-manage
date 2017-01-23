@@ -1,6 +1,7 @@
 'use strict';
 
 import Base from './base.js';
+import moment from 'moment'
 
 export default class extends Base {
     /**
@@ -21,18 +22,20 @@ export default class extends Base {
         }
         let model = this.model('question')
         let id = this.post('id')
-            //if is old
+        let title = this.post('title')
+        let content = this.post('content')
+        //if is old
         if (id) {
             await model.where({ id: id }).update({
-                name: this.post('name'),
-                password: this.post('password')
+                title: title,
+                content: content
             })
             return this.redirect('find')
         }
         //if is new
         if (await model.add({
-                name: this.post('name'),
-                password: this.post('password')
+                title: title,
+                content: content
             })) {
             // this.findAction()
             this.redirect('find')
@@ -56,7 +59,6 @@ export default class extends Base {
     }
 
     async deleteAction() {
-        console.log(66666);
         let user = this.model('user')
         let id = this.get('id')
             //返回影响的行数
@@ -68,6 +70,20 @@ export default class extends Base {
         }
     }
 
+    async detailsAction() {
+        let questionM = this.model('question')
+        let answer = this.model('answer')
+        let id = this.get('id')
+        let question = await questionM.where({ id: id }).find()
+        let answerList = await answer.where({ q_id: id }).order("id DESC").select()
+        if (question) {
+            //self in the find url,so need another
+            this.assign('question', question)
+            this.assign('answerList', answerList)
+            return this.display('details')
+        }
+    }
 
+    
 
 }

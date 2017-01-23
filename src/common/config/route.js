@@ -5,3 +5,7 @@
 //     post: "post请求下需要识别成的pathname"
 //   }]
 // ];
+
+export default [
+  ["question/:id", "question/details"]
+]
