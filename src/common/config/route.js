@@ -7,5 +7,5 @@
 // ];
 
 export default [
-  ["question/:id", "question/details"]
+  // ["question/:id", "question/details"]
 ]

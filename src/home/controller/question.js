@@ -20,6 +20,7 @@ export default class extends Base {
         if (this.isGet()) {
             return this.display()
         }
+        console.log(88888888888);
         let model = this.model('question')
         let id = this.post('id')
         let title = this.post('title')
@@ -81,6 +82,21 @@ export default class extends Base {
             this.assign('question', question)
             this.assign('answerList', answerList)
             return this.display('details')
+        }
+    }
+
+    async answerAction() {
+        let answer = this.model('answer')
+        let content = this.post('content')
+        let q_id = this.post('qid')
+        if (await answer.add({  
+                content: content,
+                q_id: q_id
+            })) {
+            // this.findAction()
+            this.redirect(`/question/details/${q_id}`)
+        } else {
+            this.assign('info', 'error')
         }
     }
 

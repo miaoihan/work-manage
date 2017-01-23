@@ -32,7 +32,7 @@ export default class extends think.model.base {
         created_time: { //创建时间
             default: () => { //获取当前时间
                 // return moment().format("YYYY-MM-DD HH:mm:ss")
-                return Date.parse(new Date())
+                return new Date().getTime()
             },
             readonly: true //只读，添加后不可修改
         }

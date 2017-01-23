@@ -11,6 +11,8 @@
  * }
  */
 
+import moment from 'moment';
+
 global.parseTime = function(timestamp){
-    
+    return moment(timestamp).format('YYYY-MM-DD HH:mm:ss');
 }

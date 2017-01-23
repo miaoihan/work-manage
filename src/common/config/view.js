@@ -1,4 +1,7 @@
 'use strict';
+
+import moment from 'moment';
+
 /**
  * template config
  */
@@ -12,7 +15,13 @@ export default {
     ejs: {},
     nunjucks: {
       trimBlocks: false, //不转义
-      prerender: function(nunjucks, env){} //针对nunjucks模板的过滤器
+      prerender: function(nunjucks,env){
+        // let env = nunjucks.Environment() 
+        env.addFilter('parseTime', (timestamp) => {
+          // console.log(66666);
+          return moment(timestamp).format("YY-MM-DD HH:mm:ss")
+        })
+      } //针对nunjucks模板的过滤器
     }
   }
 };

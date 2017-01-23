@@ -14,7 +14,7 @@
 <body>
     <!--导航栏-->
     <nav class="nav-top">
-        <div class="nav-wrapper"> <a href="/static/index.html" class="left brand-logo" style="font-size:22px;">码蜂社</a>
+        <div class="nav-wrapper"> <a href="/" class="left brand-logo" style="font-size:22px;">码蜂社</a>
             <ul id="nav-mobile" class="right">
                 <li><a href="sass.html">登录</a></li>
                 <li><a href="badges.html">注册</a></li>
@@ -32,7 +32,7 @@
                     <div class="que-meta">
                         <span>118</span>
                         <span>56</span>
-                        <span>{{question.created_time}}</span>
+                        <span>{{question.created_time | parseTime}}</span>
                     </div>
                     <div class="que-content">
                         {{question.content}}
@@ -60,10 +60,31 @@
                         <div class="col s10" style="margin:5px 0 10px -10px;">
                             <div class="meta">
                                 <span>steven</span>
-                                <span>{{answer.created_time}}</span>
+                                <span>{{question.created_time | parseTime}}</span>
                             </div>
                             <div class="ans-content">
                                 {{answer.content}}
+                            </div>
+                            <div style="margin-top:10px;color:#8590a6;">
+                                <span></span>
+                                <span>回复</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 回复的回复 -->
+                    <div class="ans-item row zcard" style="margin-left: 50px;">
+                        <div class="col">
+                            <div class="ans-avator">
+                                <img src="/static/imgs/t2.jpg" alt="" class="avator">
+                            </div>
+                        </div>
+                        <div class="col s10" style="margin:5px 0 10px -10px;">
+                            <div class="meta">
+                                <span>steven</span>
+                                <span>question.created_time | parseTime</span>
+                            </div>
+                            <div class="ans-content">
+                                answer.content
                             </div>
                             <div style="margin-top:10px;color:#8590a6;">
                                 <span></span>

@@ -16,7 +16,7 @@ export default class extends Base {
                 q_id: q_id
             })) {
             // this.findAction()
-            this.redirect(`/question/${q_id}`)
+            this.redirect(`/question/details?id=${q_id}`)
         } else {
             this.assign('info', 'error')
         }
