@@ -9,7 +9,7 @@ export default class extends think.model.base {
      * @type {Object}
      */
     schema = {
-        name: { //全名
+        username: { //全名
             default: function() { //first_name 和 last_name 的组合，这里不能用 Arrows Function
                 return '';
             }
@@ -21,9 +21,14 @@ export default class extends think.model.base {
         },
         created_time: { //创建时间
             default: () => { //获取当前时间
-                return moment().format("YYYY-MM-DD HH:mm:ss")
+                return new Date().getDate()
             },
             readonly: true //只读，添加后不可修改
+        },
+        del_state: {
+            default: () => { //0 存在 1 删除
+                return 0
+            }
         }
     }
 
